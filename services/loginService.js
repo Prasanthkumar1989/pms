@@ -2,7 +2,7 @@
 projectApp.factory('loginService',function($http, $location, sessionService){
 	return{
 		login:function(data,scope){
-			var $promise=$http.post('data/user.php',data); //send data to user.php
+			var $promise=$http.post(site_url+'data/user.php',data); //send data to user.php
 			$promise.then(function(msg){
 				var uid=msg.data;
 				if(uid!='error'){
@@ -21,7 +21,7 @@ projectApp.factory('loginService',function($http, $location, sessionService){
 			$location.path('/login');
 		},
 		islogged:function(){
-			var $checkSessionServer=$http.post('data/check_session.php');
+			var $checkSessionServer=$http.post(site_url+'data/check_session.php');
 			return $checkSessionServer;
 			/*
 			if(sessionService.get('user')) return true;
