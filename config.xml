@@ -1,0 +1,40 @@
+<widget id="com.devextreme.AbonaAPIApp.Mobile" version="4.9.0" versionCode="1" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+  <name>Employee Directory App</name>
+  <description>Employee Directory App</description>
+  <author email="prasanth.kb5@gmail.com" href="http://sample.com">Prasanth </author>
+  <preference name="permissions" value="none" />
+  <preference name="prerendered-icon" value="true" />
+  <preference name="android-windowSoftInputMode" value="adjustResize" />
+  <preference name="SplashScreenDelay" value="6000" />
+  <preference name="AutoHideSplashScreen" value="true" />
+  <preference name="SplashShowOnlyFirstTime" value="false" />
+  <preference name="FadeSplashScreen" value="false" />
+  <preference name="ShowSplashScreenSpinner" value="false" />
+  <preference name="DisallowOverscroll" value="true" />
+  <preference name="StatusBarOverlaysWebView" value="false" />
+  <preference name="StatusBarBackgroundColor" value="#000000" />
+  <preference name="android-minSdkVersion" value="16" />
+  <preference name="android-targetSdkVersion" value="22" />
+  <preference name="phonegap-version" value="cli-8.0.0" />
+  <plugin name="cordova-plugin-camera" onload="true" />
+  <plugin name="cordova-plugin-file" />
+  <plugin name="cordova-plugin-splashscreen" onload="true" />
+  <plugin name="cordova-plugin-whitelist" />
+  <plugin name="cordova-plugin-ios-longpress-fix" />
+  <plugin name="cordova-plugin-statusbar" onload="true" />
+  <preference name="CAMERA_PERMISSION_REASON" value="true" />
+  <config-file platform="ios" parent="NSCameraUsageDescription" target="*-Info.plist" overwrite="true">
+    <string>We are using your fff camera to take pictures and upload them to Abona data store</string>
+  </config-file>
+  <config-file platform="ios" parent="NSPhotoLibraryUsageDescription" target="*-Info.plist" overwrite="true">
+    <string>We are using your fff photo library to enable you to download and save pictures of documents</string>
+  </config-file>
+  <access origin="*" />
+  <config-file platform="ios" parent="CFBundleShortVersionString">
+    <string>4.9.0</string>
+  </config-file>
+  <icon src="pics/acesys.png" platform="android"/>
+  
+  <splash src="pics/splash.png" platform="android" />
+
+</widget>
