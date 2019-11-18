@@ -1,6 +1,6 @@
 <widget id="com.devextreme.AbonaAPIApp.Mobile" version="4.9.0" versionCode="1" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-  <name>Employee Directory App</name>
-  <description>Employee Directory App</description>
+  <name>Project Directory App</name>
+  <description>Project Directory App</description>
   <author email="prasanth.kb5@gmail.com" href="http://sample.com">Prasanth </author>
   <preference name="permissions" value="none" />
   <preference name="prerendered-icon" value="true" />
@@ -33,8 +33,8 @@
   <config-file platform="ios" parent="CFBundleShortVersionString">
     <string>4.9.0</string>
   </config-file>
-  <icon src="pics/acesys.png" platform="android"/>
+  <icon src="badges/acesys.png" platform="android"/>
   
-  <splash src="pics/splash.png" platform="android" />
+  <splash src="badges/splash.png" platform="android" />
 
 </widget>
