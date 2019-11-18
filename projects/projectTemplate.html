@@ -1,0 +1,62 @@
+
+<div ng-controller="projectDetailController" style="padding-top: 25px;">
+	<p>
+	<a href="#/projects" class="btn btn-info" role="button">View Project list</a>
+	<a href="#/add" class="btn btn-success" role="button">Add a Project</a>
+</p>
+	<div id="loadingDiv" ng-show="loading" class="alert alert-success">
+		Loading, please wait...
+	</div>
+	<div ng-show="!loading">
+		<div class="row">
+			<div class="col-md-6">
+				<table id="detailsTable" class="table">
+					<tr>
+						<th>Project Name:</th>
+						<td>{{ project.name }}</td>
+					</tr>
+					<tr>
+						<th>Category:</th>
+						<td>{{ project.category }}</td>
+					</tr>
+
+					<tr>
+						<th>Demo Link:</th>
+						<td><a href="{{ project.demo_link }}" target="_blank">{{ project.demo_link }}</a></td>
+					</tr>
+					<tr>
+						<th>Live Link:</th>
+						<td><a href="{{ project.live_link }}" target="_blank">{{ project.live_link }}</a></td>
+					</tr>
+					<tr>
+						<th>Details:</th>
+						<td><p class="detailsPara">{{ project.details }}</p></td>
+					</tr>
+					<tr>
+						<th>Cpanel Details:</th>
+						<td><p class="detailsPara">{{ project.cpanel_details }}</p></td>
+					</tr>
+					<tr>
+						<th>FTP Details:</th>
+						<td><p class="detailsPara">{{ project.ftp_details }}</p></td>
+					</tr>
+
+				</table>
+				<p>
+			<a href="#/edit/{{ project.id }}" class="btn btn-info" role="button">Edit project</a>
+			<a href="#/delete/{{ project.id }}" class="btn btn-danger" role="button">Delete project</a>
+		</p>
+			</div>
+			<div class="col-md-6">
+				<img id="projectBadge" src="{{ project.image }}"  width="400"  />
+			</div>
+
+		</div>
+
+
+
+
+
+
+	</div>
+</div>

@@ -1,0 +1,64 @@
+<p>
+  <a href="#/projects" class="btn btn-primary active" role="button">View Project list</a>
+  <a href="#/add" class="btn btn-success" role="button">Add a Project</a>
+  <a href="" ng-click="logout()"  ng-controller="projectListController" class="btn btn-danger pull-right">Logout</a>
+</p>
+
+<div ng-controller="projectListController">
+<!-- Div that displays for 3 seconds while the data is pulled in -->
+  <div id="loadingDiv" ng-show="loading" class="alert alert-success">
+    Loading, please wait...
+  </div>
+   <div ng-show="!loading">
+  <!-- Div that displays after the three second delay. Using AngularJS's data binding to display the team informaiton from the table -->
+  <form ng-submit="updateList()">
+   <input ng-model="query" class="form-control" placeholder="Search">
+</form>
+
+
+<table class="table">
+  <thead>
+<th>No</th>
+<th><a href="" ng-click="sortField='name'; reverse = !reverse">Project Name</a></th>
+<th><a href="" ng-click="sortField='category'; reverse = !reverse">Category</a></th>
+<th><a href="" ng-click="sortField='status'; reverse = !reverse">Status</a></th>
+<th><a href="" ng-click="sortField='demo_link'; reverse = !reverse">Demo link</a></th>
+<th><a href="" ng-click="sortField='live_link'; reverse = !reverse">Live Link</a></th>
+ </thead>
+  <tbody>
+    <tr ng-repeat="project in projects | filter:projectFilter | orderBy:sortField:reverse">
+     <td><a href="#"> <span class="listing-number">{{perPage*(page-1) +$index+1}}</span></td>
+     <td><a href="#/projects/{{ project.id }}">{{ project.name }}</a></td>
+      <td>{{ project.category }}</td>
+      <td><div ng-switch="project.status">
+  <div ng-switch-when="Live"><span class="label label-success">{{ project.status }}</span></div>
+  <div ng-switch-default><span class="label label-danger">{{ project.status }}</span></div>
+</div></td>
+      <td><a href="{{ project.demo_link }}" target="_blank">{{ project.demo_link }}</a></td>
+      <td><a href="{{ project.live_link }}" target="_blank">{{ project.live_link }}</a></td>
+
+    </tr>
+  </tbody>
+  </table>
+
+  <ul class="pager">
+    <li>
+        <select title="Page Size" ng-model="perPage">
+    <option value="10">10</option>
+    <option value="20">20</option>
+    <option value="30">30</option>
+  </select>
+    </li>
+    <li ng-click="previousPage()" ng-class="{disabled:page == 1}">
+      <a style="cursor:pointer;">Previous</a>
+    </li>
+    <li ng-click="nextPage()" ng-class="{disabled:page==lastPage}">
+      <a style="cursor:pointer;">Next</a>
+    </li>
+    <li>
+      {{page}}/{{lastPage}}
+    </li>
+  </ul>
+
+  </div>
+</div>

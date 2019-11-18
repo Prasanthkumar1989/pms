@@ -1,0 +1,75 @@
+<p>
+	<a href="#/projects" class="btn btn-info" role="button">View Project list</a>
+	<a href="#/add" class="btn btn-success" role="button">Add a Project</a>
+</p>
+<form class="form-horizontal" ng-controller="editProjectController" ng-submit="editProject()">
+	<div class="form-group">
+		<label for="name" class="col-sm-2 form-label">Project Name:</label>
+		<div class="col-sm-4">
+			<input type="text" class="form-control" id="name" ng-model="projectedit.name" />
+		</div>
+
+		<label for="category" class="col-sm-2 form-label">Category:</label>
+		<div class="col-sm-4">
+			<input type="text" class="form-control" id="category" ng-model="projectedit.category" />
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="demo_link" class="col-sm-2 form-label">Demo Link:</label>
+		<div class="col-sm-4">
+			<input type="text" class="form-control" id="demo_link" ng-model="projectedit.demo_link" />
+		</div>
+
+		<label for="live_link" class="col-sm-2 form-label">Live Link:</label>
+		<div class="col-sm-4">
+			<input type="text" class="form-control" id="live_link" ng-model="projectedit.live_link" />
+		</div>
+	</div>
+
+
+
+	<div class="form-group">
+
+		<label for="image" class="col-sm-2 form-label">Project Badge:</label>
+		<div class="col-sm-4" >
+			<!-- Custom file read directive added to the input tag -->
+			<input type="file" id="image" class="form-control"  ng-model="projectedit.image" fileread="imageSubmit" />
+			<div class="col-sm-4" ng-show="projectedit.image">
+			<p ng-model="projectedit.image">{{ projectedit.image }}</p>
+		</div>
+		</div>
+
+		<label for="status" class="col-sm-2 form-label">Status:</label>
+		<div class="col-sm-4">
+		<select name="status" ng-model="projectedit.status"  class="form-control" id="status">
+			<option value="Development">Development</option>
+			<option value="Live">Live</option>
+		</select>
+		</div>
+	</div>
+ 	<div class="form-group">
+            <label for="details" class="col-sm-2 form-label">Details:</label>
+            <div class="col-sm-10">
+                <textarea id="details" class="form-control" rows="6" ng-model="projectedit.details" ></textarea>
+            </div>
+        </div>
+        	<div class="form-group">
+            <label for="ftp_details" class="col-sm-2 form-label">FTP Details:</label>
+            <div class="col-sm-10">
+                <textarea id="ftp_details" class="form-control" rows="6" ng-model="projectedit.ftp_details" ></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="cpanel_details" class="col-sm-2 form-label">Cpanel Details:</label>
+            <div class="col-sm-10">
+                <textarea id="cpanel_details" class="form-control" rows="6" ng-model="projectedit.cpanel_details" ></textarea>
+            </div>
+        </div>
+     <div class="form-group">
+     	<div class="col-sm-12">
+     		<button type="submit" ng-model="submit" class="btn btn-success" name="update" id="update" value="update">Complete Edit</button>
+			<button type="reset" class="btn btn-warning">Reset Form</button>
+     	</div>
+     </div>
+</form>
+</div>

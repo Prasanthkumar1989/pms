@@ -1,0 +1,10 @@
+<div id="warningDiv">
+	<form ng-controller="deleteProjectController" ng-submit="deleteProject()">
+	<p>Please confirm that you would like to delete <br /><h4>{{ projectdelete.name }}</h4></p>
+	{{ projectId }}
+	<p>
+		<button type="submit" ng-model="submit" class="btn btn-success">Yes, Delete</button>
+		<a href back-button class="btn btn-danger" role="button">No, Cancel</a>
+	</p>
+	</form>
+</div>
