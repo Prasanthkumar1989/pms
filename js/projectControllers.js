@@ -23,7 +23,7 @@ projectControllers.controller('projectListController', [ "$scope", "$http", "$ti
   $scope.query = '';
   $scope.state = '';
   $scope.headers = ['title'];
-  var api = $resource('projects/projects.php?action=list',
+  var api = $resource(site_url+'projects/projects.php?action=list',
     {per_page:$scope.perPage,q:$scope.query},
     {query: {method:'GET', isArray:false}});
 
@@ -86,7 +86,7 @@ projectControllers.controller('projectDetailController', ["$scope", "$routeParam
 	function ($scope, $routeParams, $http, $timeout){
     $timeout(function(){
       $scope.projectId = $routeParams.projectId;
-      $http({method: 'GET', url: 'projects/projects.php?action=detail&id=' + $scope.projectId}).success(function(data){
+      $http({method: 'GET', url: site_url+'projects/projects.php?action=detail&id=' + $scope.projectId}).success(function(data){
         $scope.project = data;
         $scope.loading = false;
       }, 3000);
@@ -110,7 +110,7 @@ function ($scope, $http, $location){
     formData.append("status", $scope.status);
 
     //post form data to the action case of the php switch
-    $http.post("projects/projects.php?action=add", formData, { transformRequest: angular.identity, headers: { "Content-Type": undefined } }).success(function(data){
+    $http.post(site_url+"projects/projects.php?action=add", formData, { transformRequest: angular.identity, headers: { "Content-Type": undefined } }).success(function(data){
        //once project is added, redirect user back to the projects list
        $location.path('/projects');
        console.log(formData);
@@ -123,7 +123,7 @@ function ($scope, $http, $location){
 projectControllers.controller('editProjectController', ["$scope", "$routeParams", "$http", "$location",
   function ($scope, $routeParams, $http, $location){
     $scope.projectId = $routeParams.projectId;
-    $http({method: 'GET', url: 'projects/projects.php?action=detail&id=' + $scope.projectId}).success(function(data){
+    $http({method: 'GET', url: site_url+'projects/projects.php?action=detail&id=' + $scope.projectId}).success(function(data){
       $scope.projectedit = data;
     });
     $scope.editProject = function(){
@@ -144,7 +144,7 @@ projectControllers.controller('editProjectController', ["$scope", "$routeParams"
     formData.append("status", $scope.projectedit.status);
     //post form data to the action case of the php switch
 
-    $http.post("projects/projects.php?action=edit&id=" + $scope.projectedit.id, formData, { transformRequest: angular.identity, headers: { "Content-Type": undefined } }).success(function(data){
+    $http.post(site_url+"projects/projects.php?action=edit&id=" + $scope.projectedit.id, formData, { transformRequest: angular.identity, headers: { "Content-Type": undefined } }).success(function(data){
 
        //once project is added, redirect user back to the projects list
      //$location.path('/projects/' + $scope.projectedit.id);
@@ -157,11 +157,11 @@ projectControllers.controller('editProjectController', ["$scope", "$routeParams"
 projectControllers.controller('deleteProjectController', ["$scope", "$routeParams", "$http", "$location",
   function ($scope, $routeParams, $http, $location){
     $scope.projectId = $routeParams.projectId;
-    $http({method: 'GET', url: 'projects/projects.php?action=detail&id=' + $scope.projectId}).success(function(data){
+    $http({method: 'GET', url: site_url+'projects/projects.php?action=detail&id=' + $scope.projectId}).success(function(data){
       $scope.projectdelete = data;
     });
     $scope.deleteProject = function(){
-      $http.post("projects/projects.php?action=delete&id=" + $scope.projectId).success(function(data){
+      $http.post(site_url+"projects/projects.php?action=delete&id=" + $scope.projectId).success(function(data){
         $location.path('/projects');
       });
     };
